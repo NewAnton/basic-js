@@ -1,18 +1,16 @@
-console.log(encodeLine('aabbbc'));
+console.log(getSumOfDigits(91));
 
-function encodeLine(str) {
+// * For 100, the result should be 1 (1 + 0 + 0 = 1)
+// * For 91, the result should be 1 (9 + 1 = 10, 1 + 0 = 1)
+
+function getSumOfDigits(n) {
     // throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
-    let encodeStr = '';
-    let letterCounter = 1;
-    for (let i = 0; i < str.length; i++) {
-        let currentLetter = str[i];
-        if (str[i + 1] == currentLetter) {
-            letterCounter++;
-        } else {
-            encodeStr += currentLetter + letterCounter;
-            letterCounter = 1;
-        }
+    let nString = n.toString()
+    if (nString.length === 1) return n
+    n = 0;
+    for (let i = 0; i < nString.length; i++) {
+        n += parseInt(nString[i]);
     }
-    return encodeStr
+    return getSumOfDigits(n);
 }
